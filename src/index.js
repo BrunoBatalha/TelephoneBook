@@ -8,6 +8,11 @@ const server = app.listen(process.env.PORT);;
 const io = require('socket.io').listen(server);
 const ContatoDao = require('./controllers/ContatoDao');
 
+app.use(cors());
+app.use(bodyParse.json());
+app.use(bodyParse.urlencoded({ extended: false }));
+app.use(require('./routes'));
+
 io.on('connection', async socket => {
     console.log(`Socket conectado: ${socket.id}`);
 
@@ -64,11 +69,6 @@ mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
-
-app.use(cors());
-app.use(bodyParse.json());
-app.use(bodyParse.urlencoded({ extended: false }));
-app.use(require('./routes'));
 
 
 

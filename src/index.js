@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParse.json());
 app.use(bodyParse.urlencoded({ extended: false }));
 app.use(require('./routes'));
-
+io.origins('*:*');
 io.on('connection', async socket => {
     console.log(`Socket conectado: ${socket.id}`);
 

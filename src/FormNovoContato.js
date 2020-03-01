@@ -4,7 +4,7 @@ import TextArea from './TextArea';
 import Button from './Button';
 import api from './api';
 import io from 'socket.io-client';
-const socket = io(process.env.REACT_URL_BACKEND);
+const socket = io.connect(process.env.REACT_URL_BACKEND);
 
 class FormNovoContato extends React.Component {
 

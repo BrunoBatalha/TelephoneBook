@@ -1,7 +1,7 @@
 import React from 'react';
 import Tabela from './Tabela';
 import io from 'socket.io-client';
-const socket = io.connect(process.env.REACT_URL_BACKEND);
+const socket = io(process.env.REACT_URL_BACKEND);
 const alfabeto = 'ABCDEFGHIJKLMNOPQRSTUVXWYZ'.split('');
 
 class ListaContatos extends React.Component {

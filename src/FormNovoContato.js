@@ -45,6 +45,7 @@ class FormNovoContato extends React.Component {
    controla_submit = event => {
       event.preventDefault();
       api.post('novoContato', this.state).then((response) => {
+         this.limpa_inputs()
          socket.emit('listarBanco');
       }).catch(err => {
          alert(err.message);
